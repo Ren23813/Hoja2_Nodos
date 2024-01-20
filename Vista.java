@@ -9,6 +9,8 @@ public class Vista {
 
     public Vista(){
         this.customStack  = new CustomStack<>();
+
+        System.out.println("--------------- CALCULADORA ---------------");
     }
 
     public void leerDatosArchivo(String archivo){
@@ -35,7 +37,7 @@ public class Vista {
 
         int resultado = expresionEvaluar( expresion);
 
-        System.out.println( "   Resulatados de " +expresion + " : " + resultado);
+        System.out.println( "   Resulatado de " +expresion + " : " + resultado);
 
     }
 
