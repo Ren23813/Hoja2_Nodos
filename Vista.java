@@ -51,9 +51,11 @@ public class Vista {
             if (isNumber(datos)){
                 pila.push(Integer.parseInt(datos));
             }
+
+            // condición que ayuda a detectar errores del postfix, si hay más operandos para los operadores
             else if (isOperator(datos)){
                 if(pila.size() >2){
-                    System.out.println("error");
+                    System.out.println("Error, exceso de operandos para los operadores");
                     return 0;
                 }
 
