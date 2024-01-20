@@ -15,9 +15,8 @@ public class Vista {
 
         try(BufferedReader br = new BufferedReader(new FileReader(archivo))){
             String line;
-            line = br.readLine();
 
-            while ( line != null ) {
+            while ( (line = br.readLine()) != null ) {
                 // se muestran los resultados
                 showResultado(line);
                 
@@ -36,7 +35,7 @@ public class Vista {
 
         int resultado = expresionEvaluar( expresion);
 
-        System.out.println(expresion);
+        System.out.println( "Resulatados de " +expresion + " : " + resultado);
 
     }
 
@@ -72,7 +71,11 @@ public class Vista {
                         break;
 
                     case "/":
-                        
+                        if (operando2 == 0){
+                            System.out.println("No es posible dividir entre cero");
+                            return 0;
+                        }
+
                         pila.push(operando1 /operando2);
                         break;
                     
@@ -83,6 +86,7 @@ public class Vista {
 
 
                     default:
+                        System.out.println("El operando no es válido");
                         return 0;
                 }
             }
@@ -91,7 +95,12 @@ public class Vista {
                 return 0;
             }
         }
-
+        
+        // para determinar si es correcto el formato 
+        if(pila.size() != 1){
+            System.out.println("Error del formato del archivo");
+            return 0;
+        }
 
         return pila.pop();
       
