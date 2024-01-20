@@ -3,7 +3,7 @@ import java.util.LinkedList;
 public class CustomStack <T> {
     private Node<T> lastNode;
     private Node<T> firstNode;
-    private LinkedList<T>  pila;
+ 
 
 
     public void push(T value){
@@ -30,11 +30,17 @@ public class CustomStack <T> {
     }
 
     public int size(){
-        return pila.size();
+        int counter = 0;
+
+        Node<T> current = firstNode;
+
+        while(current != null){
+            counter  ++;
+            current  = current.getNext();
+        }
+
+        return counter;
     }
 
-    public CustomStack() {
-        this.pila = new LinkedList<>();
-    }
 
 }
