@@ -33,4 +33,8 @@ public class CustomStack <T> {
         return pila.size();
     }
 
+    public CustomStack() {
+        this.pila = new LinkedList<>();
+    }
+
 }
