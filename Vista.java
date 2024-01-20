@@ -31,11 +31,11 @@ public class Vista {
     }
 
     public void showResultado(String expresion){
-        System.out.println("Elementos de la pila: " + customStack );
+        System.out.println("\nPila | Operación: " );
 
         int resultado = expresionEvaluar( expresion);
 
-        System.out.println( "Resulatados de " +expresion + " : " + resultado);
+        System.out.println( "   Resulatados de " +expresion + " : " + resultado);
 
     }
 
