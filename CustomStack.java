@@ -1,6 +1,10 @@
+import java.util.LinkedList;
+
 public class CustomStack <T> {
     private Node<T> lastNode;
     private Node<T> firstNode;
+    private LinkedList<T>  pila;
+
 
     public void push(T value){
         if(lastNode == null){
@@ -23,6 +27,10 @@ public class CustomStack <T> {
             return value;
         }
         return null;
+    }
+
+    public int size(){
+        return pila.size();
     }
 
 }

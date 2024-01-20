@@ -18,6 +18,7 @@ public class Vista {
             line = br.readLine();
 
             while ( line != null ) {
+                // se muestran los resultados
                 showResultado(line);
                 
             }
@@ -29,4 +30,87 @@ public class Vista {
         }
 
     }
+
+    public void showResultado(String expresion){
+        System.out.println("Elementos de la pila: " + customStack );
+
+        int resultado = expresionEvaluar( expresion);
+
+        System.out.println(expresion);
+
+    }
+
+    public int expresionEvaluar(String expresion){
+        CustomStack<Integer> pila = new CustomStack<>();
+        
+        String[] data = expresion.split(" ");
+
+        for(String datos : data){
+
+            if (isNumber(datos)){
+                pila.push(Integer.parseInt(datos));
+            }
+            else if (isOperator(datos)){
+                if(pila.size() >2){
+                    System.out.println("error");
+                    return 0;
+                }
+
+                int operando1 = pila.pop();
+                int operando2 = pila.pop();
+
+                switch (datos) {
+
+                    case "+":
+                        
+                        pila.push(operando1 + operando2);
+                        break;
+                    
+                    case "-":
+                        pila.push(operando1 - operando2);
+
+                        break;
+
+                    case "/":
+                        
+                        pila.push(operando1 /operando2);
+                        break;
+                    
+                    case "*":
+                        pila.push(operando1* operando2);
+
+                        break;
+
+
+                    default:
+                        return 0;
+                }
+            }
+            else{
+                System.out.println("Error del dato? ");
+                return 0;
+            }
+        }
+
+
+        return pila.pop();
+      
+    }
+
+    // determinar si el dato es un número
+    private boolean isNumber(String dato){
+        try{
+            Integer.parseInt(dato);
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
+    }
+
+    // determinar si es operador
+    private boolean isOperator(String dato){
+        return dato.equals("-") ||  dato.equals("+")  || dato.equals("*") || dato.equals("/");
+    }
 }
+
