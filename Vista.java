@@ -2,17 +2,26 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * Representa la vista del programa y maneja la lógica de evaluación de los datos.
+ */
 public class Vista {
    
     private CustomStack<Integer> customStack;   //Se declara como int el que fue declarado como dato abstracto en la clase CustomStack
 
-
+    /**
+     * Constructor de vista.
+     */
     public Vista(){
         this.customStack  = new CustomStack<>();
 
         System.out.println("--------------- CALCULADORA ---------------");
     }
 
+    /**
+     * Lee los datos del archivo txt y devuelve los resultados.
+     * @param archivo
+     */
     public void leerDatosArchivo(String archivo){
 
         try(BufferedReader br = new BufferedReader(new FileReader(archivo))){
@@ -32,6 +41,10 @@ public class Vista {
 
     }
 
+    /**
+     * Muestra los resultados.
+     * @param expresion
+     */
     public void showResultado(String expresion){
         System.out.println("\nPila | Operación: " );
 
@@ -41,6 +54,11 @@ public class Vista {
 
     }
 
+    /**
+     *Evalúa los datos con el formato postfix y devuelve el resultado. 
+     * @param expresion
+     * @return
+     */
     public int expresionEvaluar(String expresion){
         CustomStack<Integer> pila = new CustomStack<>();
         
@@ -110,7 +128,12 @@ public class Vista {
       
     }
 
-    // determinar si el dato es un número
+
+    /**
+     * Determina si el dato es un número.
+     * @param dato
+     * @return
+     */
     private boolean isNumber(String dato){
         try{
             Integer.parseInt(dato);
@@ -121,7 +144,11 @@ public class Vista {
         }
     }
 
-    // determinar si es operador
+    /**
+     * Determina si el dato es un operador.
+     * @param dato
+     * @return
+     */
     private boolean isOperator(String dato){
         return dato.equals("-") ||  dato.equals("+")  || dato.equals("*") || dato.equals("/");
     }
