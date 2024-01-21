@@ -1,4 +1,4 @@
-import java.util.LinkedList;
+import java.util.LinkedList;    //Clase realizada durante el periodo de clase, por parte del catedrático y toda la sección. 
 
 public class CustomStack <T> {
     private Node<T> lastNode;
@@ -7,11 +7,11 @@ public class CustomStack <T> {
 
 
     public void push(T value){
-        if(lastNode == null){
+        if(lastNode == null){       //En caso aún no se tenga registro de algún nodo. 
             lastNode = new Node <T>(value);
             firstNode = lastNode; 
         }
-        else {
+        else {      //Para crear un nuevo nodo, cuando existe uno previo. 
             Node<T> current = new Node <T>(value);
             
             current.setNext(firstNode); 
@@ -21,12 +21,12 @@ public class CustomStack <T> {
 
 
     public T pop(){
-        if(firstNode != null){
+        if(firstNode != null){      //Si existe algún nodo creado
             T value = firstNode.getValue();
             firstNode = firstNode.getNext();
             return value;
         }
-        return null;
+        return null;        //Si aún no existe nodo creado previamente. 
     }
 
     public int size(){
@@ -35,7 +35,7 @@ public class CustomStack <T> {
         Node<T> current = firstNode;
 
         while(current != null){
-            counter  ++;
+            counter  ++;    //Para llevar conteo de nodos.
             current  = current.getNext();
         }
 
