@@ -4,7 +4,7 @@ import java.io.IOException;
 
 public class Vista {
    
-    private CustomStack<Integer> customStack;
+    private CustomStack<Integer> customStack;   //Se declara como int el que fue declarado como dato abstracto en la clase CustomStack
 
 
     public Vista(){
@@ -44,7 +44,7 @@ public class Vista {
     public int expresionEvaluar(String expresion){
         CustomStack<Integer> pila = new CustomStack<>();
         
-        String[] data = expresion.split(" ");
+        String[] data = expresion.split(" ");   //Se dividen las lineas del .txt para que por cada espacio se analice la siguiente inmediata entrada
 
         for(String datos : data){
 

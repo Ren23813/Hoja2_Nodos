@@ -1,4 +1,4 @@
-public class Node <T> {
+public class Node <T> {     //Clase realizada durante el periodo de clase, por parte del catedrático y toda la sección. 
     T value;
     Node <T> next;
 
