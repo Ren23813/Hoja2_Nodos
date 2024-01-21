@@ -1,11 +1,19 @@
-import java.util.LinkedList;    //Clase realizada durante el periodo de clase, por parte del catedrático y toda la sección. 
+import java.util.LinkedList;    
 
+/**
+ * Representa a la pila del programa.
+ * Clase realizada durante el periodo de clase, por parte del catedrático y toda la sección. 
+ */
 public class CustomStack <T> {
     private Node<T> lastNode;
     private Node<T> firstNode;
  
 
 
+    /**
+     * Agrega un nuevo elemento a la pila.
+     * @param value
+     */
     public void push(T value){
         if(lastNode == null){       //En caso aún no se tenga registro de algún nodo. 
             lastNode = new Node <T>(value);
@@ -20,6 +28,10 @@ public class CustomStack <T> {
     }
 
 
+    /**
+     * Elimina un dato de la pila y devuelve el elemento anterior.
+     * @return
+     */
     public T pop(){
         if(firstNode != null){      //Si existe algún nodo creado
             T value = firstNode.getValue();
@@ -29,6 +41,10 @@ public class CustomStack <T> {
         return null;        //Si aún no existe nodo creado previamente. 
     }
 
+    /**
+     * Obtiene el número de elementos que contiene la pila.
+     * @return
+     */
     public int size(){
         int counter = 0;
 
